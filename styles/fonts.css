@@ -1,0 +1,35 @@
+@font-face {
+  font-family: Myriad pro;
+  src:url('/fonts/MyriadPro-Regular.1.0.0.woff');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: myriad-pro-basealign;
+  src:url('/fonts/MyriadPro-Regular-baseline.1.0.0.woff');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: myriad-pro-light;
+  src:url('/fonts/MyriadPro-Light.1.0.0.woff');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: myriad-pro-semibold;
+  src:url('/fonts/MyriadPro-Semibold.1.0.0.woff');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Roboto;
+  src:url('/fonts/Roboto-Regular.1.0.0.ttf');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Roboto-Medium;
+  src:url('/fonts/Roboto-Medium.1.0.0.ttf');
+  font-display: fallback;
+}
