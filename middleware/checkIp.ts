@@ -10,6 +10,8 @@ const middleware = async (req: IncomingMessage & {
   let ip = req.headers[`x-forwarded-for`] || req.connection.remoteAddress;
   const geo = geoip.lookup(String(ip).split(`,`)[0]);
 
+  console.log(`geo: `, geo)
+
   const country = geo?.country;
 
   const countries =
