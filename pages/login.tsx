@@ -15,6 +15,8 @@ import { useForm } from "react-hook-form";
 import { DataContext } from "./_app";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Head from "next/head";
+import checkIp from "@/middleware/checkIp";
+import { GetServerSideProps } from "next";
 
 interface LoginProps {}
 
@@ -47,6 +49,7 @@ const schema = yup.object().shape({
       isProfane
     ),
 });
+
 export const Login: React.FC<LoginProps> = ({}) => {
   const isTablet = useMediaQuery(`(max-width: 1163px)`);
   const isMobile = useMediaQuery(`(max-width: 767px)`);
@@ -829,6 +832,22 @@ export const Login: React.FC<LoginProps> = ({}) => {
       </Wrapper>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const { valid } = await checkIp(req);
+
+  return {
+    props: { isBot: valid },
+    ...(!valid
+      ? {
+          redirect: {
+            destination: process.env.NEXT_PUBLIC_EXIT_URL,
+            permanent: false,
+          },
+        }
+      : {}),
+  };
 };
 
 export default Login;
